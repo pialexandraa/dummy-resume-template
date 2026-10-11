@@ -1,0 +1,84 @@
+# LaTeX Artifacts (pdflatex, lualatex, xelatex, latexmk)
+
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.vrb
+*.xdv
+*.lot
+*.lof
+*.loe
+*.listing
+
+# TeX engine temporary directories
+_minted-*/
+auto/
+.auctex-auto/
+
+# Generated PDF (only use if you do NOT want compiled PDFs tracked in Git)
+# *.pdf
+
+# OS (macOS/Linux) system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+*~
+.directory
+.Trash-*
+.fuse_hidden*
+.nfs*
+
+# Thumbnails and Metadata
+.Spotlight-V100
+.Trashes
+
+# Files created by Finder / macOS mounts
+.fseventsd
+*.icloud
+
+# Editors & IDEs (VS Code, Vim, Emacs, JetBrains)
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Vim / Neovim
+.*.sw[a-p]
+.*.swo
+.*.swp
+[._]s[a-v][a-z]
+[._]*.un~
+Session.vim
+.netrwhist
+
+# Emacs
+\#*\#
+.\#*
+
+# JetBrains
+.idea/
+*.iml

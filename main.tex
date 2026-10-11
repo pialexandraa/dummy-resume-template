@@ -1,0 +1,165 @@
+%-------------------------------------------------------------------
+% SIMPLE RESUME (LaTeX) 
+% Style: based on the simple bullet-point layout used in Harvard's
+% career-services templates, customized for any applicant.
+% Typography: Deedy font pair (Raleway headers + Lato body)
+% Color: Soft Charcoal (26, 25, 24)
+%-------------------------------------------------------------------
+
+\documentclass[10pt,letterpaper]{article}
+
+% ---------- Page layout ----------
+\usepackage[top=0.5in,bottom=0.5in,left=0.6in,right=0.6in]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% ---------- Color Configuration ----------
+\usepackage{xcolor}
+\definecolor{softblack}{RGB}{26, 25, 24} % Your milder custom color
+
+% ---------- Fonts and encoding (Deedy Pair: Raleway + Lato) ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}       % Sets Lato as the default body font
+\usepackage{raleway}             % Loads Raleway for name & section headings
+
+% ---------- Helpful packages ----------
+\usepackage{enumitem}   % bullet list spacing
+\usepackage{titlesec}   % section heading style
+\usepackage{tabularx}   % lines with text on the left and right
+\usepackage[hidelinks]{hyperref}
+
+% ---------- Section headings: Raleway bold small caps with matching divider line ----------
+\titleformat{\section}{\large\raleway\bfseries\scshape\raggedright\color{softblack}}{}{0em}{}[\color{softblack}\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+% ---------- Bullet lists ----------
+\setlist[itemize]{leftmargin=1.2em, itemsep=1pt, topsep=2pt, parsep=0pt}
+
+% ---------- Entry header: left = organization/degree, right = place/date ----------
+% Usage: \entry{Left Top}{Right Top}{Left Bottom}{Right Bottom}
+\newcommand{\entry}[4]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4} \\
+  \end{tabularx}%
+}
+
+\begin{document}
+% Apply the color globally to all body text and elements
+\color{softblack}
+
+% ==================== HEADER ====================
+\begin{center}
+  {\LARGE\raleway\bfseries Alex Mercer}\\[6pt]
+  Seattle, WA \enspace $|$ \enspace +1 555 019 2834 \enspace $|$ \enspace
+  \href{mailto:alex.mercer@email.com}{\underline{alex.mercer@email.com}} \enspace $|$ \enspace
+  \href{https://linkedin.com/in/alexmercer-dev}
+  {\underline{LinkedIn}} \enspace $|$ \enspace
+  \href{https://github.com/ale654789302mercer-dev}
+  {\underline{Github portfolio}}
+\end{center}
+
+% ==================== EXPERIENCE ====================
+\section{Experience}
+
+\entry{Senior Backend Engineer}{Seattle, WA}
+      {Nexus Cloud Solutions}{Nov 2022 -- Present}
+\begin{itemize}
+  \item Architected and deployed scalable microservices processing 5M+ daily requests using Go and gRPC, reducing latency by 40\%.
+  \item Migrated legacy monolithic architecture to AWS Elastic Kubernetes Service (EKS), implementing automated CI/CD pipelines with GitHub Actions.
+  \item Skills: Go, Python, AWS (EKS, S3, RDS), Kubernetes, Docker, gRPC, GitHub Actions.
+\end{itemize}
+
+\vspace{4pt}
+
+\entry{Software Engineer II}{San Francisco, CA}
+      {DataStream Analytics}{Feb 2019 -- Dec 2021}
+\begin{itemize}
+  \item Designed and optimized RESTful APIs for a real-time data visualization dashboard used by 50,000+ enterprise clients.
+  \item Refactored core database queries, improving PostgreSQL query execution time by 60\% and reducing server load.
+  \item Skills: Python, Django, REST APIs, PostgreSQL, Redis, Celery, Datadog.
+\end{itemize}
+
+\vspace{4pt}
+
+\entry{Junior Software Engineer}{Austin, TX}
+      {FinTech Innovators}{Jun 2017 -- Jan 2019}
+\begin{itemize}
+  \item Developed and maintained responsive frontend components for a secure mobile banking application using React and Redux.
+  \item Collaborated with the QA team to implement unit and integration testing frameworks, increasing test coverage from 45\% to 85\%.
+  \item Skills: JavaScript, TypeScript, React, Redux, Node.js, Jest, Express.  
+\end{itemize}
+
+\vspace{4pt}
+
+\entry{QA Automation Engineer}{Chicago, IL}
+      {Pioneer Software}{Oct 2016 -- May 2017}
+\begin{itemize}
+  \item Created comprehensive automated test suites for a proprietary CRM system using Selenium Webdriver and Python.
+  \item Authored technical documentation and debugging runbooks for the tier-2 support team.
+  \item Skills: Python, Selenium, PyTest, Jenkins, Linux, Technical Writing.
+\end{itemize}
+
+\vspace{4pt}
+
+\entry{Software Engineering Intern}{Chicago, IL}
+      {Nimbus Dynamics}{Feb 2015 -- Apr 2015}
+\begin{itemize}
+  \item Developed Python scripts to automate data scraping from public APIs, saving the research team 10 hours of manual data entry per week.
+  \item Assisted senior engineers in migrating legacy front-end components to early iterations of React during the startup's core platform redesign.
+  \item Skills: Python, JavaScript, Git, Bash.
+\end{itemize}
+
+% ==================== EDUCATION ====================
+\section{Education}
+
+\entry{University of Washington}{}
+      {Master of Science (M.S.) in Computer Science}{2020 -- 2022}
+\begin{itemize}
+  \item Studies: Distributed Systems, Cloud Computing Architectures, Advanced Data Structures.
+\end{itemize}
+
+\entry{University of Texas at Austin}{}
+      {Bachelor of Science (B.S.) in Software Engineering; Minor in Cognitive Psychology}{2011 -- 2015}
+\begin{itemize}
+  \item Studies: Operating Systems, Computer Architecture, Algorithm Analysis.
+  \item Interdisciplinary focus: Completed advanced coursework in behavioral economics, human-computer interaction (HCI), and the sociology of digital communities.
+\end{itemize}
+
+\entry{Santa Fe Institute}{}
+      {Complex Systems Summer School}{Summer 2014}
+\begin{itemize}
+  \item Intensive undergraduate fellowship exploring non-linear dynamics, emergence, and network theory outside standard computing paradigms.
+\end{itemize}
+
+% ==================== PROJECTS / ACTIVITIES ====================
+\section{Projects and Activities}
+
+\entry{Distributed Load Balancer}{Oct 2023}
+      {Developer}{Open Source Contribution}
+\begin{itemize}
+  \item Built a layer-4 network load balancer in Go, capable of distributing traffic across multiple backend servers using round-robin and least-connections algorithms.
+\end{itemize}
+
+\entry{Seattle Tech Mentorship}{Jan 2023 -- Present}
+      {Mentor}{Community involvement}
+\begin{itemize}
+  \item Provide weekly coding mentorship and architectural guidance to coding bootcamp graduates transitioning into software engineering careers.
+\end{itemize}
+
+\entry{Seattle Speculative Fiction Collective}{Feb 2021 -- Present}
+      {Co-Founder \& Facilitator}{Community involvement}
+\begin{itemize}
+  \item Organize bi-weekly reading groups analyzing magical realism, speculative fiction, and the socio-economic themes of automated futures in modern literature.
+  \item Coordinate quarterly author Q\&A sessions and local indie bookstore partnerships to promote emerging regional writers.
+\end{itemize}
+
+% ==================== SKILLS ====================
+\section{Skills and Interests}
+
+\textbf{Technical:} Go, Python, JavaScript, TypeScript, Java, SQL, Operating Systems (Linux, macOS), Cloud (AWS, Google Cloud), Containers (Docker, Kubernetes), Frameworks (Django, React, Node.js), Databases (PostgreSQL, MongoDB, Redis), Version Control (Git, GitHub), CI/CD, Agile.\\[6pt]
+\textbf{Certifications:} AWS Certified Solutions Architect - Associate, Certified Kubernetes Administrator (CKA).\\[6pt]
+\textbf{Languages:} English (native), Spanish (intermediate).\\[6pt]
+\textbf{Interests:} Rock climbing, urban sketching, magical realism literature, mechanical keyboards, embedded systems.
+\end{document}
