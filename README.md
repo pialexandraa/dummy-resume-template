@@ -6,7 +6,7 @@ This repository implements the visual and structural standards established by th
 
 {Test}
 
-![Preview test resume_blablaablalaaablaaaaaaa](resume_preview.pdf)
+![Preview test resume_blablaablalaaablaaaaaaa](https://github.com/pialexandraa/dummy-resume-template/resume_preview.pdf)
 
 {Test}
 
