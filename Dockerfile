@@ -15,4 +15,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /workspace
 
-CMD ["pdflatex", "-interaction=nonstopmode", "main.tex"]
+CMD ["pdflatex", "-interaction=nonstopmode", "-jobname=resume_preview", "main.tex"]
