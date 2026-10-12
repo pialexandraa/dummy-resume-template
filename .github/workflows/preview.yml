@@ -1,0 +1,58 @@
+name: Build PDF and generate preview
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'main.tex'
+      - '.github/workflows/preview.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install TeX live and rendering utilities
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            poppler-utils
+
+      - name: Compile LaTeX to PDF
+        run: |
+          pdflatex -interaction=nonstopmode -jobname=resume_preview main.tex
+          pdflatex -interaction=nonstopmode -jobname=resume_preview main.tex
+
+      - name: Render PDF page to PNG preview
+        run: |
+          # Converts the first page of main.pdf into preview.png at 150 DPI
+          pdftoppm -png -r 150 -singlefile resume_preview.pdf preview
+
+      - name: Commit preview to repository
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add preview.png
+          if git diff --staged --quiet; then
+            echo "No changes in preview.png"
+          else
+            git commit -m "chore(preview): update rendered preview [skip ci]"
+            git push
+          fi
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume_preview.pdf
+          path: resume_preview.pdf
