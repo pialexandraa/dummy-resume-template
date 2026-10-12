@@ -27,8 +27,6 @@ The resume is dull on purpose. No color accents, no columns, no graphics, nothin
 * The pair comes from the Deedy-Resume template, which uses Lato and Raleway. These are pretty modern and pleasing to the eye.
 * The original Deedy template is compiled with XeLaTeX and `fontspec`. This template instead loads the `lato` and `raleway` packages and is written for pdfLaTeX (`T1` encoding).
 
-
-
 ## 2. Layout and engineering stance
 
 ```latex
@@ -275,4 +273,23 @@ Using verbs outside the list is not a problem in itself. The list is a suggestio
 
 ### Persona
 
-The page asks that a resume "authentically represent who you are and what you have to offer". In this template the persona is built from the sample content: a backend engineer with a cognitive psychology minor, a summer school at the Santa Fe Institute, community activities and specific interests. This is a content choice by the author. The page text does not say anything about including an interests section.
+The page asks that a resume "authentically represent who you are and what you have to offer." In this template the persona is built from the sample content: a backend engineer with a cognitive psychology minor, a summer school at the Santa Fe Institute, community activities and specific interests. This is a content choice by the author. The page text does not say anything about including an interests section.
+
+## Customization, Docker containerized compilation, and automated visual pipeline
+
+After defining the base resume set up and prerequisites, I have added the local `Dockerfile` that will automatically run the compilation of the resume in a container. One only needs to build the Docker image one time; as such, after building the image once and mounting the current working directory as a volume (`-v $(pwd):/workspace`), the compiling can be done in a few seconds.
+
+This creates much more flexibility in local testing and comes with extra advantages: 
+* **Zero-host pollution** - if running this on a Mac, the TeX distributions (e.g. LaTeX, pdfLaTeX) are famously challenging to set up and consume a lot of space on disk (3 to 6 GB). Using a dedicated Docker image allows for a minimal consumption footprint, since it installs only the required packages.
+
+```bash
+docker build -t resume-builder .
+```
+* **Binary determinism and front-end elements matching** - regardless of your local machine's configuration, the Raleway and Lato packages will render indentically across macOS, Windows, or Linux distributions without having to deal with the missing system fonts.
+```bash
+docker run --rm -v $(pwd):/workspace resume-builder
+```
+
+![Building the container](./assets/docker_running_1.png)
+
+![Fast compilation](./assets/docker_running_2.png)
