@@ -4,12 +4,6 @@ An engineering-grade, single-page LaTeX resume template designed for maximum hum
 
 This repository implements the visual and structural standards established by the **Harvard University Faculty of Arts and Sciences (FAS) Mignone Center for Career Success**, paired with an ATS-optimized parsing architecture, and a harmonious layout. The document was optimized for ATS friendly standards.
 
-{Test}
-
-![Preview test resume_blablaablalaaablaaaaaaa](resume_preview.pdf)
-
-{Test}
-
 <div align="center">
   <a href="resume_preview.pdf">
     <img src="preview.png" alt="Resume Preview" width="600" style="border: 1px solid #d0d7de; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
