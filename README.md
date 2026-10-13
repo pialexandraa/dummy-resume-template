@@ -6,7 +6,7 @@ This repository implements the visual and structural standards established by th
 
 {Test}
 
-![Preview test resume_blablaablalaaablaaaaaaa](https://github.com/pialexandraa/dummy-resume-template/resume_preview.pdf)
+![Preview test resume_blablaablalaaablaaaaaaa](resume_preview.pdf)
 
 {Test}
 
@@ -15,8 +15,6 @@ This repository implements the visual and structural standards established by th
     <img src="preview.png" alt="Resume Preview" width="600" style="border: 1px solid #d0d7de; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
   </a>
 </div>
-
-{Test}
 
 ## Design rationale, ATS parsing, and engineering stance
 
